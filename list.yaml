@@ -23,11 +23,6 @@ items:
         uri: https://github.com/bobbydeveaux/redis-openshift.git
       type: Git
     strategy:
-      dockerStrategy:
-        from:
-          kind: ImageStreamTag
-          name: centos:latest
-          namespace: openshift
       type: Docker
     triggers: []
   status:
@@ -96,7 +91,7 @@ items:
         from:
           kind: ImageStreamTag
           name: redis:latest
-          namespace: redis
+          namespace: php-redis
       type: ImageChange
   status: {}
 - apiVersion: v1
@@ -177,7 +172,7 @@ items:
         from:
           kind: ImageStreamTag
           name: redis:latest
-          namespace: redis
+          namespace: php-redis
       type: ImageChange
     - imageChangeParams:
         automatic: true
@@ -186,7 +181,7 @@ items:
         from:
           kind: ImageStreamTag
           name: redis:latest
-          namespace: redis
+          namespace: php-redis
       type: ImageChange
     - type: ConfigChange
   status: {}
@@ -252,7 +247,7 @@ items:
         from:
           kind: ImageStreamTag
           name: redis:latest
-          namespace: redis
+          namespace: php-redis
       type: ImageChange
   status: {}
 - apiVersion: v1
